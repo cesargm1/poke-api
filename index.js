@@ -22,6 +22,7 @@ const callApi = async () => {
 			const obtainNumberPokemon = pokemon.url.split("/")[6];
 			cardNumber.textContent = `#${obtainNumberPokemon}`;
 			const cardImg = document.createElement("img");
+			cardImg.classList.add('pokemonImg')
 			cardContent.appendChild(cardImg);
 			const cardP = document.createElement("p");
 			cardContent.appendChild(cardP);
@@ -39,8 +40,8 @@ const PokemonSprites = async () => {
 				`https://pokeapi.co/api/v2/pokemon/${pokemonId}`,
 			);
 			const data = await response.json();
-			console.log(data);
-			data.sprites.map((pokemonImg) => {});
+			const imgFront = data.sprites.front_default
+			const cardsImages = document.querySelectorAll('.pokemonImg')
 		}
 	} catch (error) {
 		console.log(error);
